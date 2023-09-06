@@ -1,11 +1,3 @@
-// const Experience = ({title, info}) => {
-//     return (
-//         <>
-//             <h2 className="title"> {title} </h2>
-//             <span> {info} </span>
-//         </>
-//     );
-// }
 
 import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
