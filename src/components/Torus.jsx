@@ -1,23 +1,11 @@
 
-import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
-
-const Torus = ({position, color, scale}) => {
-
-    const torusRef = useRef()
-
-    useFrame(({ clock }) => {
-        const time = clock.getElapsedTime()
-        torusRef.current.position.y = Math.sin(time);;
-        torusRef.current.rotation.y = Math.cos(time);
-    })
+const Torus = (props) => {
 
     return <>
-        <mesh ref={torusRef} position={position} scale={scale} >
+        <mesh {...props} >
             <torusGeometry />
-            <meshPhongMaterial color={color}  />
+            <meshPhongMaterial color={props.color}  />
         </mesh>
     </>
-
 }
 export default Torus;
