@@ -1,7 +1,8 @@
 
-import { OrbitControls, Stars } from "@react-three/drei";
+import { OrbitControls, Stars, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
+
 import Box from "./components/Box";
 import Sphere from "./components/Sphere";
 import Cone from "./components/Cone"
@@ -12,11 +13,29 @@ import RobotGbl from "./World/RobotGbl";
 
 const Experience = ({title, info}) => {
 
+    const PATH = "/assets/textures/terrain/"
+
     const robotRef = useRef()
     const boxRef = useRef()
     const coneRef = useRef()
     const sphereRef = useRef()
     const torusRef = useRef()
+
+    const propsTexture1 = useTexture({
+        map: PATH + "texture1/textureColor.jpg",
+        // displacementMap: PATH + 'texture/texture1Height.png',
+        normalMap: PATH + 'texture1/textureNormal.jpg',
+        roughnessMap: PATH + 'texture1/textureRoughness.jpg',
+        aoMap: PATH + 'texture1/textureAO.jpg'
+    })
+
+    const propsTexture2 = useTexture({
+        map: PATH + "texture2/textureColor.jpg",
+        // displacementMap: PATH + 'texture/texture2Height.png',
+        normalMap: PATH + 'texture2/textureNormal.jpg',
+        roughnessMap: PATH + 'texture2/textureRoughness.jpg',
+        aoMap: PATH + 'texture2/textureAO.jpg'
+    })
 
     useFrame((state, delta) => {
         const time = state.clock.getElapsedTime()
@@ -51,10 +70,10 @@ const Experience = ({title, info}) => {
 
         <mesh position-x={2} position-y={2} scale={0.5}> 
             <mesh ref={boxRef}>
-                <Box position={[3, 0, 0]} scale={0.5} color="orange" /> 
+                <Box position={[3, 0, 0]} scale={0.5}  propsTexture={propsTexture2}/> 
             </mesh>
             <mesh ref={sphereRef}>
-                <Sphere position={[-3, 0, 0]} scale={0.4} color="#A518E9" />
+                <Sphere position={[-3, 0, 0]} scale={0.4} propsTexture={propsTexture1} />
             </mesh>
             <mesh ref={coneRef}>
                 <Cone position={[2, 0, -2]} scale={0.7} color="#18E9D8" />
