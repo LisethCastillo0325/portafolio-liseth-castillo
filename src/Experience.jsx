@@ -54,13 +54,13 @@ const Experience = ({title, info}) => {
                 <Box position={[3, 0, 0]} scale={0.5} color="orange" /> 
             </mesh>
             <mesh ref={sphereRef}>
-                <Sphere position={[-3, 0, 0]} scale={0.3} color="#A518E9" />
+                <Sphere position={[-3, 0, 0]} scale={0.4} color="#A518E9" />
             </mesh>
             <mesh ref={coneRef}>
-                <Cone position={[2, 0, -2]} scale={0.6} color="#18E9D8" />
+                <Cone position={[2, 0, -2]} scale={0.7} color="#18E9D8" />
             </mesh>
             <mesh ref={torusRef}>
-                <Torus position={[-1, -1, -2]} scale={0.5} color="#18A1E9" />
+                <Torus position={[-1, -1, -2]} scale={0.6} color="#18A1E9" />
             </mesh>
         </mesh>
         

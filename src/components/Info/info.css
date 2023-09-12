@@ -15,7 +15,7 @@
 .card-info{
     padding: 2rem;
     border-radius: 1rem;
-    border-bottom: 8px solid #c43ead;
+    border-bottom: 8px solid #bd16a1;
     text-align: center;
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 1rem rgba(45, 45, 45, 0.1);
@@ -24,7 +24,7 @@
 .name{
     font-size: rem;
     font-weight: bold;
-    color: #c43ead;
+    color: #bd16a1;
 }	
 
 .biography{
