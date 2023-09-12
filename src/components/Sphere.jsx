@@ -1,24 +1,12 @@
-import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
 
-
-const Sphere = ({position, color, scale}) => {
-
-    const sphereRef = useRef()
-
-    useFrame(({ clock }) => {
-        const time = clock.getElapsedTime()
-        sphereRef.current.position.x = Math.sin(time);
-        sphereRef.current.position.y =  Math.cos(time) ;
-    })
+const Sphere = (props) => {
 
     return <>
         {/* Esfera */} 
-        <mesh ref={sphereRef} position={position} scale={scale} position-z={1}>
+        <mesh  {...props} >
             <sphereGeometry args={[1, 32]} />
-            <meshStandardMaterial color={color}  />
+            <meshStandardMaterial color={props.color}  />
         </mesh>
     </>
-
 }
 export default Sphere;

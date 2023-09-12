@@ -1,21 +1,11 @@
 
-import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
-
-const Box = ({position, color, scale}) => {
-
-    const boxRef = useRef()
-
-    useFrame((state, delta) => {
-        boxRef.current.rotation.x += 1 * delta
-    })
+const Box = (props) => {
 
     return <>
-        <mesh ref={boxRef} position={position} scale={scale} >
+        <mesh {...props} >
             <boxGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial color={color} />
+            <meshStandardMaterial color={props.color} />
         </mesh>
     </>
-
 }
 export default Box;
