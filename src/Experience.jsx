@@ -1,7 +1,7 @@
 
 import { OrbitControls, Stars, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 import Box from "./components/Box";
 import Sphere from "./components/Sphere";
@@ -20,20 +20,21 @@ const Experience = ({title, info}) => {
     const coneRef = useRef()
     const sphereRef = useRef()
     const torusRef = useRef()
+    const starsRef = useRef();
 
     const propsTexture1 = useTexture({
         map: PATH + "texture1/textureColor.jpg",
         // displacementMap: PATH + 'texture/texture1Height.png',
-        normalMap: PATH + 'texture1/textureNormal.jpg',
-        roughnessMap: PATH + 'texture1/textureRoughness.jpg',
+        // normalMap: PATH + 'texture1/textureNormal.jpg',
+        // roughnessMap: PATH + 'texture1/textureRoughness.jpg',
         aoMap: PATH + 'texture1/textureAO.jpg'
     })
 
     const propsTexture2 = useTexture({
         map: PATH + "texture2/textureColor.jpg",
         // displacementMap: PATH + 'texture/texture2Height.png',
-        normalMap: PATH + 'texture2/textureNormal.jpg',
-        roughnessMap: PATH + 'texture2/textureRoughness.jpg',
+        // normalMap: PATH + 'texture2/textureNormal.jpg',
+        // roughnessMap: PATH + 'texture2/textureRoughness.jpg',
         aoMap: PATH + 'texture2/textureAO.jpg'
     })
 
@@ -56,17 +57,21 @@ const Experience = ({title, info}) => {
 
         // Sphere
         sphereRef.current.position.x = Math.sin(time) * -1;
+        sphereRef.current.rotation.x += -1 * delta
 
         // Torus
         torusRef.current.position.y = Math.sin(time) * 1;
         torusRef.current.rotation.y = Math.cos(time) * -1;
+
+        // Satrt
+        starsRef.current.rotation.x = Math.sin(time) * 0.1;
     })
 
     return <>
         <OrbitControls />
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={2} /> 
-        <Stars />
+        <Stars ref={starsRef} />
 
         <mesh position-x={2} position-y={2} scale={0.5}> 
             <mesh ref={boxRef}>
