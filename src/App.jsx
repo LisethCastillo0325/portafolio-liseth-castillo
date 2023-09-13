@@ -1,24 +1,23 @@
-import { Canvas } from "@react-three/fiber";
-
-import Experience from "./Components/Experience";
-import Info from "./Components/Info/Info";
+import { Canvas } from "@react-three/fiber"
+import Experience from "./Experience"
+import Info from "./Info/Info"
 
 const App = () => {
-
+    // Camera settings
     const cameraSettings = {
         position: [0, 0, 5],
         fov: 60
     }
 
-    return <>
-        <Info 
-            name="Liseth Castillo"
-            biography="Web 3D Developer." />
-        <Canvas 
-            camera={cameraSettings}
-        >
-            <Experience />
-        </Canvas>
-    </>
+    return (
+        <>
+            <Info name={"Fabian Valencia"} biography={"Web 3D Developer"} />
+            <Canvas
+                camera={cameraSettings}
+            >
+                <Experience />
+            </Canvas>
+        </>
+    )
 }
-export default App;
+export default App
