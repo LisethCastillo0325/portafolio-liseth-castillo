@@ -8,9 +8,6 @@ const Lights = () => {
     const directionalLightRef = useRef();
     // useHelper(directionalLightRef, DirectionalLightHelper);
 
-    const spotLightRef = useRef()
-    // useHelper(spotLightRef, SpotLightHelper)
-
     const hemisphereLightRef = useRef(); 
     // useHelper(hemisphereLightRef, HemisphereLightHelper);
 
@@ -35,18 +32,10 @@ const Lights = () => {
                 castShadow
                 shadow-mapSize={[258, 258]}
                 />
-            <spotLight
-                ref={spotLightRef}
-                position={[-4, 4, 2]}
-                angle={Math.PI / 16} // dividido en 12 unidades
-                intensity={100}
-                color={"white"}
-                penumbra={1}
-                distance={20}
-            />
+           
             <hemisphereLight 
                 ref={hemisphereLightRef} 
-                // position={[2, 10, -2]}
+                position={[2, 10, -2]}
                 intensity={1}
                 color={"blue"}
                 />
