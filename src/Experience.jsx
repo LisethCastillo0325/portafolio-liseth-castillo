@@ -3,25 +3,25 @@ import Bee from "./World/Bee";
 import { Tree } from "./World/Tree";
 import { WoodenFence } from "./World/WoodenFence";
 import Lights from "./World/Lights";
-import Environments from "./World/Environments";
+import Environments from "./World/Environment";
+import Floor from "./World/Floor";
+import { Suspense } from "react";
 import { Perf } from "r3f-perf";
 
 const Experience = () => {
     return (
         <>
-            <Perf position={"top-right"} />
-            <OrbitControls makeDefault />
+            {/* <Perf /> */}
+            <OrbitControls target={[0, 1.5, 0]} />
             <Lights />
             <Environments />
-
-            <Bee position-x={2} scale={1.5} />
-            <Tree position={[-2, -2, 2]} scale={0.04} />
-            <WoodenFence position={[-1, -2, 2]} rotation-y={Math.PI/2} />
-            <WoodenFence position={[1, -2, 2]} rotation-y={-Math.PI/2} />
-            <mesh position-y={-2} rotation-x={-Math.PI / 2} receiveShadow >
-                <planeGeometry attach="geometry" args={[12, 12]} />
-                <meshStandardMaterial attach="material" color={"green"} />
-            </mesh>
+            <Suspense fallback={null}>
+                <Bee position={[2, 1.5, 0]} scale={1.5} />
+                <Tree position={[-2, 0, 2]} scale={0.04} />
+                <WoodenFence position={[-1, 0, 2]} rotation-y={Math.PI / 2} />
+                <WoodenFence position={[1, 0, 2]} rotation-y={-Math.PI / 2} />
+                <Floor rotation-x={-Math.PI / 2} receiveShadow/>
+            </Suspense>
         </>
     )
 }

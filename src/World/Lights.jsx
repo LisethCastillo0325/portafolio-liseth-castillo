@@ -1,66 +1,45 @@
-import { useHelper } from "@react-three/drei";
-import { useControls } from "leva";
-import { useMemo, useRef } from "react";
-import { DirectionalLightHelper, HemisphereLightHelper, PointLightHelper, SpotLightHelper } from "three";
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
 
 const Lights = () => {
-
     const directionalLightRef = useRef();
-    // useHelper(directionalLightRef, DirectionalLightHelper);
+    const spotLightRef = useRef();
 
-    const pointLightRef = useRef()
-    // useHelper(pointLightRef, PointLightHelper)
-
-    const spotLightRef = useRef()
-    // useHelper(spotLightRef, SpotLightHelper)
-
-    const hemisphereLightRef = useRef(); 
-    // useHelper(hemisphereLightRef, HemisphereLightHelper);
-
-    const options = useMemo(() => {
-        return{
-            intensitySL: { value: 100, min: 0, max: 1000, step: 1 },
-            colorSL: {value: "white"}
-           
-        }
-    }, [])
-
-    const { intensitySL, colorSL } = useControls("Spot Light", options);
+    useFrame((state) => {
+        spotLightRef.current.position.x = Math.sin(state.clock.getElapsedTime()) * 1 
+    })
 
     return (
         <>
-            <ambientLight intensity={0.5}/>
-            <directionalLight 
-                ref={directionalLightRef} 
-                position={[10, 10, 5]} 
-                intensity={5} 
-                color={0x2471A3} 
+            <ambientLight intensity={0.5} />
+            <directionalLight
+                ref={directionalLightRef}
+                position={[10, 10, 5]}
+                intensity={1}
+                color={"white"}
                 castShadow
-                shadow-mapSize={[256, 256]}
+                shadow-mapSize={[1024, 1024]}
                 shadow-camera-far={32}
                 shadow-camera-left={-8}
                 shadow-camera-right={8}
-                shadow-camera-top={4}
-                shadow-camera-bottom={-4}
-                />
-            <pointLight ref={pointLightRef} position={[0, 4, -2]} intensity={4}  color={"red"} />
+                shadow-camera-top={8}
+                shadow-camera-bottom={-8}
+            />
             <spotLight
                 ref={spotLightRef}
                 position={[0, 4, 2]}
-                angle={Math.PI / 12} // dividido en 12 unidades
-                intensity={intensitySL}
-                color={colorSL}
+                angle={Math.PI / 12}
+                intensity={500}
                 penumbra={1}
-                distance={8}
+                color={"white"}
+                distance={6}
             />
-            <hemisphereLight 
-                ref={hemisphereLightRef} 
-                // position={[2, 10, -2]}
-                intensity={10}
+            <hemisphereLight
+                intensity={5}
                 color={"red"}
-                />
-
+            />
         </>
     )
 }
-export default Lights
+
+export default Lights;
