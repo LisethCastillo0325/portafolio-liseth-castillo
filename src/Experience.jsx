@@ -1,19 +1,16 @@
 
-import { OrbitControls, Stars, useTexture } from "@react-three/drei";
+import { OrbitControls, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
-import Box from "./components/Box";
 import Sphere from "./components/Sphere";
-import Cone from "./components/Cone"
-import Torus from "./components/Torus"
-
 import RobotGbl from "./World/RobotGbl";
 import Lights from "./World/Lights";
 import Environments from "./World/Environments";
+import Floor from "./World/Floor";
 
 
-const Experience = ({title, info}) => {
+const Experience = () => {
 
     const PATH = "/assets/textures/terrain/"
 
@@ -60,19 +57,16 @@ const Experience = ({title, info}) => {
         </mesh>
 
         <mesh ref={sphereRef2} position={[18, 5, -20]}>
-            <Sphere scale={5} propsTexture={propsTexture1} />
+            <Sphere scale={4} propsTexture={propsTexture1} />
         </mesh>
 
         
         {/* <Robot /> */}
         <mesh ref={robotRef}>
-            <RobotGbl position={[2, -1, 2]} rotation-y={-Math.PI * 0.15} scale={0.8}/>
+            <RobotGbl position={[2, -1, 3]} rotation-y={-Math.PI * 0.15} scale={0.8}/>
         </mesh>
 
-        <mesh position-y={-3} rotation-x={-Math.PI / 2} receiveShadow >
-            <planeGeometry attach="geometry" args={[30, 12]} />
-            <meshStandardMaterial {...propsTexture3}  />
-        </mesh>
+        <Floor position-y={-3} rotation-x={-Math.PI / 2} receiveShadow />
     </>
 
 }

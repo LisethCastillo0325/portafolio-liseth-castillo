@@ -7,14 +7,14 @@ import Experience from "./Experience";
 const App = () => {
 
     const cameraSettings = {
-        position: [0, 0, 7],
+        position: [0, 1, 9],
         fov: 60
     }
 
     return <>
         <Info 
             name="Liseth Castillo"
-            biography="I am a systems engineering student. I like to learm and practice new things, for example, developing a 3D website." />
+            biography="Backend Developer." />
          <Canvas 
             camera={cameraSettings}
             shadows>
