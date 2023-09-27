@@ -35,7 +35,7 @@ const Environments = () => {
                 size={4}
                 fade={false}
                 speed={0.5}
-                scale={6}
+                scale={10}
             />
 
             {/* <Cloud

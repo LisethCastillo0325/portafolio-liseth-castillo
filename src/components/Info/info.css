@@ -1,6 +1,6 @@
 .container-info{
     display: flex;
-    width: 35%;
+    width: 25%;
     /* height: 100%; */
     flex-direction: column;
     /* justify-content: center; */
@@ -8,8 +8,8 @@
     position: absolute;
     z-index: 1;
     /* margin-left: 3rem; */
-    padding-left: 3rem;
-    margin-top: 25rem;
+    /* padding-left: 2rem; */
+    margin-top: 5rem;
 }
 
 .card-info{
