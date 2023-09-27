@@ -1,5 +1,5 @@
 
-import { OrbitControls, useTexture } from "@react-three/drei";
+import { Float, OrbitControls, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
@@ -8,6 +8,8 @@ import RobotGbl from "./World/RobotGbl";
 import Lights from "./World/Lights";
 import Environments from "./World/Environments";
 import Floor from "./World/Floor";
+import WelcomeText from "./World/WelcomeText";
+import AboutMeText from "./World/AboutMeText";
 
 
 const Experience = () => {
@@ -64,6 +66,10 @@ const Experience = () => {
         {/* <Robot /> */}
         <mesh ref={robotRef}>
             <RobotGbl position={[2, -1, 3]} rotation-y={-Math.PI * 0.15} scale={0.8}/>
+        </mesh>
+
+        <mesh rotation-y={0.8} castShadow scale={1}>
+            <WelcomeText />
         </mesh>
 
         <Floor position-y={-3} rotation-x={-Math.PI / 2} receiveShadow />
