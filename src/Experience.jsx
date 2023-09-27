@@ -1,13 +1,16 @@
 
-import { OrbitControls, useTexture } from "@react-three/drei";
+import { Float, OrbitControls, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import Sphere from "./components/Sphere";
 import RobotGbl from "./World/RobotGbl";
 import Lights from "./World/Lights";
 import Environments from "./World/Environments";
 import Floor from "./World/Floor";
+import WelcomeText from "./World/WelcomeText";
+import AboutMeText from "./World/AboutMeText";
+import AboutMe from "./components/AboutMe/about_me";
 
 
 const Experience = () => {
@@ -17,6 +20,11 @@ const Experience = () => {
     const robotRef = useRef()
     const sphereRef = useRef()
     const sphereRef2 = useRef()
+    const [isVisible, setIsVisible] = useState(false);
+
+    const toggleVisibility = (e, type) => {
+        setIsVisible(type == "show" ? true : false);
+    };
 
     const propsTexture3 = useTexture({
         map: PATH + "texture2/textureColor.jpg",
@@ -65,6 +73,17 @@ const Experience = () => {
         <mesh ref={robotRef}>
             <RobotGbl position={[2, -1, 3]} rotation-y={-Math.PI * 0.15} scale={0.8}/>
         </mesh>
+
+        <mesh rotation-y={0.8} castShadow scale={1} 
+            onClick={(e) => toggleVisibility(e, "show")}
+            onPointerMissed={(e) => toggleVisibility(e, "close")}
+            >
+            <WelcomeText />
+        </mesh>
+        
+        {isVisible && (
+            <AboutMe visible={false} />
+        )}
 
         <Floor position-y={-3} rotation-x={-Math.PI / 2} receiveShadow />
     </>
