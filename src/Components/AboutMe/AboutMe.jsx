@@ -1,7 +1,7 @@
 import "./AboutMe.css"
 import { Html } from "@react-three/drei"
 
-const AboutMe = (props) => {
+const AboutMeText = (props) => {
 
     return (
         <mesh onClick={(e) => e.stopPropagation()} >
@@ -19,4 +19,4 @@ const AboutMe = (props) => {
     )
 }
 
-export default AboutMe;
+export default AboutMeText;

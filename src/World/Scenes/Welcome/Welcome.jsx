@@ -6,8 +6,8 @@ import { useRef, useState } from "react";
 import RobotGbl from "./Models/RobotGbl";
 import Floor from "./Models/Floor";
 import WelcomeText from "./Text/WelcomeText";
-import AboutMe from "../../../Components/AboutMe/AboutMe"
 import Sphere from "../../Geometries/Sphere";
+import AboutMeText from "../../../Components/AboutMe/AboutMe";
 
 
 const Welcome = () => {
@@ -18,6 +18,7 @@ const Welcome = () => {
     const sphereRef = useRef()
     const sphereRef2 = useRef()
     const [isVisible, setIsVisible] = useState(false);
+
 
     const toggleVisibility = (e, type) => {
         setIsVisible(type == "show" ? true : false);
@@ -65,18 +66,18 @@ const Welcome = () => {
             
             {/* <Robot /> */}
             <mesh ref={robotRef}>
-                <RobotGbl position={[2, -1, 3]} rotation-y={-Math.PI * 0.15} scale={0.8}/>
+                <RobotGbl position={[1, -1, 3]} rotation-y={-Math.PI * 0.15} scale={0.8}/>
             </mesh>
 
             <mesh rotation-y={0.8} castShadow scale={1} 
-                onClick={(e) => toggleVisibility(e, "show")}
-                onPointerMissed={(e) => toggleVisibility(e, "close")}
+                // onClick={(e) => toggleVisibility(e, "show")}
+                // onPointerMissed={(e) => toggleVisibility(e, "close")}
                 >
                 <WelcomeText />
             </mesh>
             
             {isVisible && (
-                <AboutMe visible={false} />
+                <AboutMeText visible={false} />
             )}
 
             <Floor position-y={-3} rotation-x={-Math.PI / 2} receiveShadow />

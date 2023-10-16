@@ -7,7 +7,7 @@ import Experience from "./World/Experience";
 const App = () => {
 
     const cameraSettings = {
-        position: [0, 1, 9],
+        position: [0, 0.5, 9],
         fov: 60
     }
 

@@ -14,7 +14,7 @@ const Floor = (props) => {
         aoMap: PATH + 'texture3/textureAO.jpg'
     })
 
-    const repeat = new Vector2(4, 2);
+    const repeat = new Vector2(14, 14);
 
     for (const map of [
         propsTexture.map, 
@@ -42,7 +42,7 @@ const Floor = (props) => {
     return (
         <>
             <mesh {...props} >
-                <planeGeometry attach="geometry" args={[100, 40, 50]} />
+                <planeGeometry attach="geometry" args={[74, 74, 96, 96]} />
                 <meshStandardMaterial {...propsTexture}  />
             </mesh>
         </>
