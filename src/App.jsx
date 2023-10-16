@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 
-import Info from "./components/Info/Info";
-import Experience from "./Experience";
+import Info from "./Components/Info/Info";
+import Experience from "./World/Experience";
 
 
 const App = () => {
