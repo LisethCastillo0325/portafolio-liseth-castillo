@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber";
 
 import { useRef, useState } from "react";
 import { MathUtils } from "three";
+import AboutMeText from "../../../../Components/AboutMe/AboutMe";
 
 
 const WelcomeText = ({size}) => {
@@ -12,8 +13,8 @@ const WelcomeText = ({size}) => {
 
     useFrame((state, delta) => {
         state.camera.position.x = MathUtils.lerp(state.camera.position.x, active ? 15 : 0, 0.02)
-        state.camera.position.z = MathUtils.lerp(state.camera.position.z, active ? -8 : 9, 0.02)
         state.camera.position.y = MathUtils.lerp(state.camera.position.y, active ? -1 : 0, 0.01)
+        state.camera.position.z = MathUtils.lerp(state.camera.position.z, active ? -8 : 9, 0.02)
     })
 
     const handleSign = (e, type) => {

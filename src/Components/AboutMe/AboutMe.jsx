@@ -5,7 +5,7 @@ const AboutMeText = (props) => {
 
     return (
         <mesh onClick={(e) => e.stopPropagation()} >
-            <Html position={[0, 2.5, 4]} center distanceFactor = {10} >
+            <Html position={[0, 6, -10]} center distanceFactor = {20} >
                 <div className="container-about-me">
                     <div className="card-about-me" >
                         <h1 className="name-about-me">About Me</h1>
