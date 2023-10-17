@@ -11,7 +11,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 
 const RobotGbl = (props) => {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("assets/models/robot-gbl/robot_playground.glb");
+  const { nodes, materials, animations } = useGLTF("assets/models/robot_playground.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
@@ -1063,6 +1063,6 @@ const RobotGbl = (props) => {
   );
 }
 export default RobotGbl;
-useGLTF.preload("assets/models/robot-gbl/robot_playground.glb");
+useGLTF.preload("assets/models/robot_playground.glb");
 
 

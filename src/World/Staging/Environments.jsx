@@ -37,15 +37,6 @@ const Environments = () => {
                 speed={0.5}
                 scale={10}
             />
-
-            {/* <Cloud
-                opacity={0.5}
-                speed={0.4} // Rotation speed
-                width={50} // Width of the full cloud
-                depth={5} // Z-dir depth
-                segments={20} // Number of particles
-                position-y={20}
-            /> */}
         </>
     )
 }

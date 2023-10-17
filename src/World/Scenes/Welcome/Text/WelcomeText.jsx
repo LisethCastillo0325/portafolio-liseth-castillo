@@ -1,15 +1,24 @@
 import { Center, Float, Text, Text3D } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { MathUtils } from "three";
+import AboutMeText from "../../../../Components/AboutMe/AboutMe";
 
 
 const WelcomeText = ({size}) => {
 
     const aboutMeRef = useRef()
+    const [active, setActive] = useState(false)
+
+    useFrame((state, delta) => {
+        state.camera.position.x = MathUtils.lerp(state.camera.position.x, active ? 15 : 0, 0.02)
+        state.camera.position.y = MathUtils.lerp(state.camera.position.y, active ? -1 : 0, 0.01)
+        state.camera.position.z = MathUtils.lerp(state.camera.position.z, active ? -8 : 9, 0.02)
+    })
 
     const handleSign = (e, type) => {
         aboutMeRef.current.material.color.set(0xbd16a1)
-        console.log(aboutMeRef.current)
     };
 
     const handleOutput = (e, type) => {
@@ -48,6 +57,7 @@ const WelcomeText = ({size}) => {
                     position-x={-3}
                     onPointerOver={(e) => handleSign(e, "About Me")}
                     onPointerLeave={(e) => {handleOutput(e, "About Me")}}
+                    onClick={() => setActive(!active)}
                     >
                     <Text3D
                         font="/assets/fonts/Permanent Marker_Regular.json"

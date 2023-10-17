@@ -3,6 +3,7 @@ import Lights from "./Staging/Lights";
 import Environments from "./Staging/Environments";
 import Controls from "./Controls/Controls";
 import Welcome from "./Scenes/Welcome/Welcome"
+import AboutMe from "./Scenes/AboutMe/AboutMe";
 
 
 const Experience = () => {
@@ -12,6 +13,7 @@ const Experience = () => {
         <Lights />
 
         <Welcome />
+        <AboutMe />
     </>
 }
 export default Experience;
