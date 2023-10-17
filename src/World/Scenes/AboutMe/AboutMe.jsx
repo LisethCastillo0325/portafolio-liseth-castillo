@@ -58,51 +58,49 @@ const AboutMe = () => {
 
     return (
         <>
-            <Physics>
-                <Capsule position={[12, -0.5, -7]} scale={2} rotation-y={0.1} />
-                <RigidBody 
-                    ref={torusRef} 
-                    type={"dinamic"} 
-                    colliders={"trimesh"} 
-                    position={[11, -1, -6.6]}
-                    rotation-x={-Math.PI / 2} 
-                    >
-                    <mesh scale={0.5} onClick={onHandleTorus}>
-                        <torusGeometry  />
-                        <meshLambertMaterial color={"#63b8ca"} />
-                    </mesh> 
-                </RigidBody> 
+            <Capsule position={[12, -0.5, -7]} scale={2} rotation-y={0.1} />
+            
+            <RigidBody 
+                ref={torusRef} 
+                type={"dinamic"} 
+                colliders={"trimesh"} 
+                position={[11, -1, -6.6]}
+                rotation-x={-Math.PI / 2} 
+                >
+                <mesh scale={0.5} onClick={onHandleTorus}>
+                    <torusGeometry  />
+                    <meshLambertMaterial color={"#63b8ca"} />
+                </mesh> 
+            </RigidBody> 
 
-                <RigidBody 
-                    ref={ball1Ref} 
-                    colliders={"ball"}
-                    position={[11, -0.5, -6.6]} 
-                    restitution={0.3}
-                    onCollisionEnter={() => {setPlay(true)}}
-                    onCollisionExit={() => {setPlay(false)}}
-                    >
-                    <mesh scale={0.4} onClick={onHandleSphere1}>
-                        <sphereGeometry />
-                        <meshStandardMaterial color={"red"} />
-                    </mesh>
-                </RigidBody>
+            <RigidBody 
+                ref={ball1Ref} 
+                colliders={"ball"}
+                position={[11, -0.5, -6.6]} 
+                restitution={0.3}
+                onCollisionEnter={() => {setPlay(true)}}
+                onCollisionExit={() => {setPlay(false)}}
+                >
+                <mesh scale={0.4} onClick={onHandleSphere1}>
+                    <sphereGeometry />
+                    <meshStandardMaterial color={"red"} />
+                </mesh>
+            </RigidBody>
 
-                <RigidBody 
-                    ref={ball2Ref} 
-                    colliders={"ball"} 
-                    position={[10, -1, -8]} 
-                    restitution={0.3}
-                    friction={0.9}
-                    onCollisionEnter={() => {setPlay(true)}}
-                    onCollisionExit={() => {setPlay(false)}}
-                    >
-                    <mesh scale={0.2} onClick={onHandleSphere2}>
-                        <sphereGeometry />
-                        <meshStandardMaterial color={"pink"} />
-                    </mesh>
-                </RigidBody>
-
-            </Physics>
+            <RigidBody 
+                ref={ball2Ref} 
+                colliders={"ball"} 
+                position={[10, -1, -8]} 
+                restitution={0.3}
+                friction={0.9}
+                onCollisionEnter={() => {setPlay(true)}}
+                onCollisionExit={() => {setPlay(false)}}
+                >
+                <mesh scale={0.2} onClick={onHandleSphere2}>
+                    <sphereGeometry />
+                    <meshStandardMaterial color={"pink"} />
+                </mesh>
+            </RigidBody>
 
             {active && (
                 <AboutMeText  />

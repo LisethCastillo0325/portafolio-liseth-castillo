@@ -1,15 +1,16 @@
 import { Center, Float, Text, Text3D } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { RigidBody } from "@react-three/rapier";
 
 import { useRef, useState } from "react";
 import { MathUtils } from "three";
-import AboutMeText from "../../../../Components/AboutMe/AboutMe";
 
 
 const WelcomeText = ({size}) => {
 
     const aboutMeRef = useRef()
     const [active, setActive] = useState(false)
+    const fonts = "/assets/fonts/Permanent Marker_Regular.json"
 
     useFrame((state, delta) => {
         state.camera.position.x = MathUtils.lerp(state.camera.position.x, active ? 15 : 0, 0.02)
@@ -38,7 +39,7 @@ const WelcomeText = ({size}) => {
                     position-x={-2.9}
                     >
                     <Text3D
-                        font="/assets/fonts/Permanent Marker_Regular.json"
+                        font={fonts}
                         size={0.5}
                         bevelEnabled
                         bevelSize={0.005}
@@ -60,7 +61,7 @@ const WelcomeText = ({size}) => {
                     onClick={() => setActive(!active)}
                     >
                     <Text3D
-                        font="/assets/fonts/Permanent Marker_Regular.json"
+                        font={fonts}
                         size={0.2}
                         bevelEnabled
                         bevelSize={0.005}
