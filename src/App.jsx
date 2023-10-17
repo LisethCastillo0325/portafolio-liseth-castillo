@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 
 import Info from "./Components/Info/Info";
 import Experience from "./World/Experience";
+import { Loader } from "@react-three/drei";
 
 
 const App = () => {
@@ -15,12 +16,16 @@ const App = () => {
         <Info 
             name="Liseth Castillo"
             biography="Backend Developer." />
-         <Canvas 
+        <Canvas 
             camera={cameraSettings}
             shadows>
             
-           <Experience />
+            <Experience />
         </Canvas>
+        <Loader
+            containerStyles={{ backgroundColor: 'transparent', border: '2px solid #000' }}
+            innerStyles={{ color: 'pink' }}
+            />
     </>
 }
 export default App;

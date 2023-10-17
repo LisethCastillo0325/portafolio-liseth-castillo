@@ -1,4 +1,5 @@
 import { useTexture } from "@react-three/drei";
+import { RigidBody } from "@react-three/rapier";
 import { RepeatWrapping, Vector2 } from "three";
 
 
@@ -41,10 +42,12 @@ const Floor = (props) => {
 
     return (
         <>
-            <mesh {...props} >
-                <planeGeometry attach="geometry" args={[74, 74, 96, 96]} />
-                <meshStandardMaterial {...propsTexture}  />
-            </mesh>
+            <RigidBody type="fixed">
+                <mesh {...props} >
+                    <planeGeometry attach="geometry" args={[74, 74, 96, 96]} />
+                    <meshStandardMaterial {...propsTexture}  />
+                </mesh>
+            </RigidBody>
         </>
     )
 

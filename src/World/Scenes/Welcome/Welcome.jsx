@@ -52,7 +52,7 @@ const Welcome = () => {
                 <Sphere scale={1} propsTexture={propsTexture3} />
             </mesh>
 
-            <mesh ref={sphereRef2} position={[18, 5, -20]}>
+            <mesh ref={sphereRef2} position={[18, 10, -30]}>
                 <Sphere scale={4} propsTexture={propsTexture1} />
             </mesh>
             
